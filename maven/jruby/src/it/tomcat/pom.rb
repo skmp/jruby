@@ -1,10 +1,12 @@
-id 'dummy:tomcat:1.0-SNAPSHOT'
+id 'org.jruby.its.main:tomcat:1'
+
+version = File.read( File.join( basedir, '../../../../..', 'VERSION' ) ).strip
 
 # it is war-file
 packaging 'war'
 
 # get jruby dependencies
-properties( 'jruby.version' => '@project.version@',
+properties( 'jruby.version' => version,
             'project.build.sourceEncoding' => 'utf-8' )
 
 pom( 'org.jruby:jruby', '${jruby.version}' )
@@ -18,9 +20,6 @@ repository( :url => 'http://rubygems-proxy.torquebox.org/releases',
 jruby_plugin :gem, :includeRubygemsInTestResources => false, :includeRubygemsInResources => true do
   execute_goal :initialize
 end 
-
-# ruby-maven will dump an equivalent pom.xml
-properties[ 'tesla.dump.pom' ] = 'pom.xml'
 
 # start tomcat for the tests
 plugin( 'org.codehaus.mojo:tomcat-maven-plugin', '1.1',
@@ -44,7 +43,7 @@ execute 'check download', :phase => :verify do
   unless result.match( /#{expected}/ )
     raise "missed expected string in download: #{expected}"
   end
-  expected = 'classes/gems/flickraw-0.9.7'
+  expected = 'uri:classloader:/gems/flickraw-0.9.7'
   unless result.match( /#{expected}/ )
     raise "missed expected string in download: #{expected}"
   end

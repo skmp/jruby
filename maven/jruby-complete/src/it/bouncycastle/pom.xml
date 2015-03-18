@@ -1,5 +1,5 @@
 <project>
-  <groupId>org.jruby</groupId>
+  <groupId>org.jruby.its.complete</groupId>
   <artifactId>bouncycastle</artifactId>
   <version>1</version>
   <modelVersion>4.0.0</modelVersion>
@@ -35,9 +35,4 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <bc.version>1.47</bc.version>
   </properties>
-
-  <build>
-    <plugins>
-    </plugins>
-  </build>
 </project>

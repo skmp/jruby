@@ -1,6 +1,6 @@
 <project>
-  <groupId>org.jruby</groupId>
-  <artifactId>executables</artifactId>
+  <groupId>org.jruby.its.jruby-jars</groupId>
+  <artifactId>integrity</artifactId>
   <version>1</version>
   <modelVersion>4.0.0</modelVersion>
 

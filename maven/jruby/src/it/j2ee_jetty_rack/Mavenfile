@@ -1,10 +1,14 @@
 #-*- mode: ruby -*-
 
+id 'org.jruby.its.main:j2ee_jetty_rack:1'
+
+version = File.read( File.join( basedir, '../../../../..', 'VERSION' ) ).strip
+
 # it is war-file
 packaging 'war'
 
 # get jruby dependencies
-properties( 'jruby.version' => '@project.version@',
+properties( 'jruby.version' => version,
             'jruby.plugins.version' => '1.0.7',
             'project.build.sourceEncoding' => 'utf-8',
             'public.dir' => '${basedir}/public' )
@@ -13,10 +17,6 @@ pom( 'org.jruby:jruby', '${jruby.version}' )
 
 jar( 'org.jruby.rack:jruby-rack', '1.1.18',
      :exclusions => [ 'org.jruby:jruby-complete' ] )
-
-
-# ruby-maven will dump an equivalent pom.xml
-properties[ 'tesla.dump.pom' ] = 'pom.xml'
 
 # a gem to be used
 gem 'flickraw', '0.9.7'

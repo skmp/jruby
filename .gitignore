@@ -73,6 +73,7 @@ tool/nailgun/config.log
 tool/nailgun/config.status
 tool/nailgun/ng
 reference.txt
+maven/jruby-complete/pom.xml
 
 # binaries
 !bin/gem

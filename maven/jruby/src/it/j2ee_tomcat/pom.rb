@@ -1,8 +1,12 @@
+id 'org.jruby.its.main:j2ee_tomcat:1'
+
+version = File.read( File.join( basedir, '../../../../..', 'VERSION' ) ).strip
+
 # it is war-file
 packaging 'war'
 
 # get jruby dependencies
-properties( 'jruby.version' => '@project.version@',
+properties( 'jruby.version' => version,
             'project.build.sourceEncoding' => 'utf-8' )
 
 pom( 'org.jruby:jruby', '${jruby.version}' )
@@ -20,10 +24,6 @@ execute 'jrubydir', 'initialize' do |ctx|
   require 'jruby/commands'
   JRuby::Commands.generate_dir_info( ctx.project.build.directory.to_pathname + '/rubygems' )
 end
-
-# ruby-maven will dump an equivalent pom.xml
-properties( 'tesla.dump.pom' => 'pom.xml',
-            'jruby.home' => '../../../../../' )
 
 # start tomcat for the tests
 plugin( 'org.codehaus.mojo:tomcat-maven-plugin', '1.1',

@@ -1,8 +1,10 @@
 #-*- mode: ruby -*-
 
-properties( 'tesla.dump.pom' => 'pom.xml',
-            'tesla.dump.readOnly' => true,
-            'jruby.version' => '@project.version@',
+id 'org.jruby.its.main:runnable:1'
+
+version = File.read( File.join( basedir, '../../../../..', 'VERSION' ) ).strip
+
+properties( 'jruby.version' => version,
             'jruby.plugins.version' => '1.0.8' )
 
 gemfile

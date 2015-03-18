@@ -1,6 +1,6 @@
 <project>
-  <groupId>org.jruby</groupId>
-  <artifactId>bouncycastle</artifactId>
+  <groupId>org.jruby.its.complete</groupId>
+  <artifactId>bouncycastle-with-bc-gem</artifactId>
   <version>1</version>
   <modelVersion>4.0.0</modelVersion>
 
@@ -53,7 +53,7 @@
       <plugin>
         <groupId>de.saumya.mojo</groupId>
         <artifactId>gem-maven-plugin</artifactId>
-        <version>1.0.0-rc2</version>
+        <version>1.0.8</version>
         <executions>
           <execution>
             <goals><goal>initialize</goal></goals>

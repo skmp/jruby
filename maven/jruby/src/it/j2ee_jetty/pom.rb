@@ -1,8 +1,12 @@
+id 'org.jruby.its.main:j2ee_jetty:1'
+
+version = File.read( File.join( basedir, '../../../../..', 'VERSION' ) ).strip
+
 # it is war-file
 packaging 'war'
 
 # get jruby dependencies
-properties( 'jruby.version' => '@project.version@',
+properties( 'jruby.version' => version,
             'project.build.sourceEncoding' => 'utf-8' )
 
 pom( 'org.jruby:jruby', '${jruby.version}' )
@@ -20,10 +24,6 @@ execute 'jrubydir', 'initialize' do |ctx|
   require 'jruby/commands'
   JRuby::Commands.generate_dir_info( ctx.project.build.directory.to_pathname + '/rubygems' )
 end
-
-# ruby-maven will dump an equivalent pom.xml
-properties( 'tesla.dump.pom' => 'pom.xml',
-            'jruby.home' => '../../../../../' )
 
 # start jetty for the tests
 plugin( 'org.eclipse.jetty:jetty-maven-plugin', '9.1.3.v20140225',

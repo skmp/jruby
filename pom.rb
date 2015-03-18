@@ -128,8 +128,6 @@ project 'JRuby', 'https://github.com/jruby/jruby' do
     plugin :surefire, '2.15'
     plugin :plugin, '3.2'
     plugin( :invoker, '1.8',
-            'settingsFile' =>  '${basedir}/src/it/settings.xml',
-            'localRepositoryPath' =>  '${project.build.directory}/local-repo',
             'properties' => { 'project.version' => '${project.version}' },
             'pomIncludes' => [ '*/pom.xml' ],
             'pomExcludes' => [ 'extended/pom.xml', '${its.j2ee}', '${its.osgi}' ],

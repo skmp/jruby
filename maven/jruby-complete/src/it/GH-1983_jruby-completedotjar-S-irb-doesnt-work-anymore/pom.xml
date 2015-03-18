@@ -1,5 +1,5 @@
 <project>
-  <groupId>org.jruby</groupId>
+  <groupId>org.jruby.its</groupId>
   <artifactId>execute-java--jar-jruby-complete_dot_jar--S-jirb</artifactId>
   <version>1</version>
   <modelVersion>4.0.0</modelVersion>

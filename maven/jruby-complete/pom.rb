@@ -9,8 +9,9 @@ project 'JRuby Complete' do
   inherit "org.jruby:jruby-artifacts:#{version}"
   packaging 'bundle'
 
-  properties( 'tesla.dump.pom' => 'pom.xml',
-              'tesla.dump.readonly' => true,
+  # we need the pom.xml for the osgi plugin
+  properties( 'polyglot.dump.pom' => 'pom.xml',
+              'polyglot.dump.readonly' => true,
               'main.basedir' => '${project.parent.parent.basedir}',
               'jruby.complete.home' => '${project.build.outputDirectory}/META-INF/jruby.home' )
 

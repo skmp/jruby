@@ -1,8 +1,13 @@
 # it is war-file
+
+id 'org.jruby.its.main:j2ee_wildfly:1'
+
+version = File.read( File.join( basedir, '../../../../..', 'VERSION' ) ).strip
+
 packaging 'war'
 
 # get jruby dependencies
-properties( 'jruby.version' => '@project.version@',
+properties( 'jruby.version' => version,
             'project.build.sourceEncoding' => 'utf-8' )
 
 pom( 'org.jruby:jruby', '${jruby.version}' )
@@ -21,10 +26,6 @@ execute 'jrubydir', 'initialize' do |ctx|
   require 'jruby/commands'
   JRuby::Commands.generate_dir_info( ctx.project.build.directory.to_pathname + '/rubygems' )
 end
-
-# ruby-maven will dump an equivalent pom.xml
-properties( 'tesla.dump.pom' => 'pom.xml',
-            'jruby.home' => '../../../../../' )
 
 plugin( 'org.wildfly.plugins:wildfly-maven-plugin:1.0.2.Final' ) do
   execute_goals( :start,
