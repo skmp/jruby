@@ -17,29 +17,29 @@ env:
     - TARGET='test-extended'
     - TARGET='spec:ruby:fast'
     - TARGET='spec:ruby19:fast'
-    - TARGET='jruby-jars'
-    - TARGET='complete'
-    - TARGET='osgi'
-    - TARGET='test-jruby-jars'
-    - TARGET='jruby-jars-extended'
-    - TARGET='main-extended'
+#    - TARGET='jruby-jars'
+#    - TARGET='complete'
+#    - TARGET='osgi'
+#    - TARGET='test-jruby-jars'
+#    - TARGET='jruby-jars-extended'
+#    - TARGET='main-extended'
 
 matrix:
   include:
     # there is one integration test which uses a external jar for jdk7+
-    - jdk: oraclejdk7
-      env: TARGET='main'
-    - jdk: oraclejdk7
-      env: TARGET='j2ee'
+#    - jdk: oraclejdk7
+#      env: TARGET='main'
+#    - jdk: oraclejdk7
+#      env: TARGET='j2ee'
     # nice to have at least some feedback on jdk 7/8
-    - jdk: openjdk7
-      env: TARGET='test-extended'
-    - jdk: openjdk7
-      env: TARGET='spec:ruby19:fast'
-    - jdk: oraclejdk8
-      env: TARGET='test-extended'
-    - jdk: oraclejdk8
-      env: TARGET='spec:ruby19:fast'
+#    - jdk: openjdk7
+#      env: TARGET='test-extended'
+#    - jdk: openjdk7
+#      env: TARGET='spec:ruby19:fast'
+#    - jdk: oraclejdk8
+#      env: TARGET='test-extended'
+#    - jdk: oraclejdk8
+#      env: TARGET='spec:ruby19:fast'
   fast_finish: true
 
 branches:
